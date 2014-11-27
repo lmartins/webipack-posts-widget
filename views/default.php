@@ -21,7 +21,7 @@ $content_types = $flexible_posts->query['post_type'];
 
 if( $flexible_posts->have_posts() ):
 ?>
-	<div class="dpe-flexible-posts <?php foreach ($content_types as $class ) { echo "featured-" . $class . "s "; } ?>  " <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
+	<div class="loop loop-default <?php foreach ($content_types as $class ) { echo "featured-" . $class . "s "; } ?>  " <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
 	<?php while( $flexible_posts->have_posts() ) : $flexible_posts->the_post(); global $post; ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<a href="<?php echo the_permalink(); ?>">
@@ -36,7 +36,8 @@ if( $flexible_posts->have_posts() ):
 						}
 					}
 				?>
-				<div class="title"><?php the_title(); ?></div>
+				<h4 class="title"><?php the_title(); ?></h4>
+                <?php the_excerpt(); ?>
 			</a>
 		</div>
 	<?php endwhile; ?>
