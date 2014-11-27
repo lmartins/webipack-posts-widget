@@ -23,23 +23,25 @@ if( $flexible_posts->have_posts() ):
 ?>
 	<div class="loop loop-default <?php foreach ($content_types as $class ) { echo "featured-" . $class . "s "; } ?>  " <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
 	<?php while( $flexible_posts->have_posts() ) : $flexible_posts->the_post(); global $post; ?>
-		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<a href="<?php echo the_permalink(); ?>">
-				<?php
-					if( $thumbnail == true ) {
-						// If the post has a feature image, show it
-						if( has_post_thumbnail() ) {
-							the_post_thumbnail( $thumbsize );
-						// Else if the post has a mime type that starts with "image/" then show the image directly.
-						} elseif( 'image/' == substr( $post->post_mime_type, 0, 6 ) ) {
-							echo wp_get_attachment_image( $post->ID, $thumbsize );
-						}
-					}
-				?>
-				<h4 class="title"><?php the_title(); ?></h4>
-                <?php the_excerpt(); ?>
-			</a>
-		</div>
+		<div class="item">
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    			<a href="<?php echo the_permalink(); ?>">
+    				<?php
+    					if( $thumbnail == true ) {
+    						// If the post has a feature image, show it
+    						if( has_post_thumbnail() ) {
+    							the_post_thumbnail( $thumbsize );
+    						// Else if the post has a mime type that starts with "image/" then show the image directly.
+    						} elseif( 'image/' == substr( $post->post_mime_type, 0, 6 ) ) {
+    							echo wp_get_attachment_image( $post->ID, $thumbsize );
+    						}
+    					}
+    				?>
+    				<h4 class="title"><?php the_title(); ?></h4>
+                    <?php the_excerpt(); ?>
+    			</a>
+    		</div>
+        </div>
 	<?php endwhile; ?>
 	</div><!-- .dpe-flexible-posts -->
 <?php
