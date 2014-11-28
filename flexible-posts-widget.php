@@ -1,27 +1,27 @@
 <?php
 /**
- * Webipack Posts Widget
+ * Posts Widget (Webipack)
  *
  * Display posts as widget items.
  *
- * @package   Webipack_Posts_Widget
- * @author    David Paul Ellenwood <david@dpedesign.com>
+ * @package   Posts_Widget_(Webipack)
+ * @author    Webipack <info@webipack.com>
  * @license   GPL-2.0+
- * @link      http://wordpress.org/extend/plugins/flexible-posts-widget
- * @copyright 2013 David Paul Ellenwood
+ * @link      http://www.webipack.com
+ * @copyright 2014 Webipack
  *
- * @flexible-posts-widget
- * Plugin Name:       Webipack Posts Widget
- * Plugin URI:        http://wordpress.org/extend/plugins/flexible-posts-widget
+ * @posts-widget-webipack
+ * Plugin Name:       Posts Widget (Webipack)
+ * Plugin URI:        http://www.webipack.com
  * Description:       An advanced posts display widget with many options: get posts by post type and taxonomy & term or by post ID; sorting & ordering; feature images; custom templates and more.
  * Version:           3.4
  * Author:            dpe415
- * Author URI:        http://dpedesign.com
+ * Author URI:        http://www.webipack.com
  * Text Domain:       flexible-posts-widget
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/dpellenwood/flexible-posts-widget
+ * GitHub Plugin URI: https://github.com/lmartins
  */
 
 /**
@@ -122,7 +122,7 @@ class WIP_Posts_Widget extends WP_Widget {
 		// The widget contrstructor
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Webipack Posts Widget', $this->get_widget_text_domain() ),
+			__( 'Posts Widget (Webipack)', $this->get_widget_text_domain() ),
 			array(
 				//'classname'   => $this->get_widget_slug(),
 				'description' => __( 'Display posts as widget items.', $this->get_widget_text_domain() ),
