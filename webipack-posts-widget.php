@@ -15,7 +15,7 @@
  * Plugin URI:        http://www.webipack.com
  * Description:       An advanced posts display widget with many options: get posts by post type and taxonomy & term or by post ID; sorting & ordering; feature images; custom templates and more.
  * Version:           3.4
- * Author:            dpe415
+ * Author:            webipack
  * Author URI:        http://www.webipack.com
  * Text Domain:       flexible-posts-widget
  * License:           GPL-2.0+
