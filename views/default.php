@@ -14,7 +14,7 @@ if ( !empty($title) )
 
 if( $flexible_posts->have_posts() ):
 ?>
-    <div class="loop loop--list <?php foreach ($content_types as $class ) { echo "featured-" . $class . "s "; } ?>  " <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
+    <div class="loop loop--list" <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
     <?php while( $flexible_posts->have_posts() ) : $flexible_posts->the_post(); global $post; ?>
         <div class="item">
             <div id="post-<?php the_ID(); ?>" <?php post_class( 'Media' ); ?> >

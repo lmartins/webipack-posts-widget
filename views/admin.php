@@ -90,10 +90,12 @@ if ( !defined( 'ABSPATH' ) )
 
 	<div class="section display">
 		<h4><?php _e( 'Display options', $this->get_widget_text_domain() ); ?></h4>
-        <p class="check cf">
-          <input class="dpe-fp-promotions" id="<?php echo $this->get_field_id( 'display_promo' ); ?>" name="<?php echo $this->get_field_name( 'display_promo' ); ?>" type="checkbox" value="1" <?php checked( '1', $display_promo ); ?>/>
-          <label for="<?php echo $this->get_field_id( 'display_promo' ); ?>"><?php _e( 'Show only promotion products?', $this->get_widget_text_domain() ); ?></label>
-        </p>
+        <?php if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
+            <p class="cf">
+              <input class="dpe-fp-promotions" id="<?php echo $this->get_field_id( 'display_promos' ); ?>" name="<?php echo $this->get_field_id( 'display_promos' ); ?>" type="checkbox" value="1" <?php checked( '1', $display_promos ); ?>/>
+              <label for="<?php echo $this->get_field_id( 'display_promos' ); ?>"><?php _e( 'Show only promotion products?', $this->get_widget_text_domain() ); ?></label>
+            </p>
+        <?php } ?>
         <p class="check cf">
           <input class="dpe-fp-sticky" id="<?php echo $this->get_field_id( 'sticky' ); ?>" name="<?php echo $this->get_field_name( 'sticky' ); ?>" type="checkbox" value="1" <?php checked( '1', $sticky ); ?>/>
           <label for="<?php echo $this->get_field_id( 'sticky' ); ?>"><?php _e( 'Ignore sticky posts?', $this->get_widget_text_domain() ); ?></label>
