@@ -108,16 +108,6 @@ if ( !defined( 'ABSPATH' ) )
           <label for="<?php echo $this->get_field_id( 'offset' ); ?>"><?php _e( 'Number of posts to skip:', $this->get_widget_text_domain() ); ?></label>
           <input id="<?php echo $this->get_field_id( 'offset' ); ?>" name="<?php echo $this->get_field_name( 'offset' ); ?>" type="text" value="<?php echo $offset; ?>" />
         </p>
-        <p class="cf">
-            <label for="<?php echo $this->get_field_id( 'columns' ); ?>"><?php _e( 'Grid Columns:', $this->get_widget_text_domain() ); ?></label>
-            <select name="<?php echo $this->get_field_name( 'columns' ); ?>" id="<?php echo $this->get_field_id( 'columns' ); ?>">
-                <?php
-                foreach ( $this->columns as $key => $value ) {
-                    echo '<option value="' . $key . '" id="' . $this->get_field_id( $key ) . '"', $columns == $key ? ' selected="selected"' : '', '>', $value, '</option>';
-                }
-                ?>
-            </select>
-        </p>
    		<p class="cf">
 			<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order posts by:', $this->get_widget_text_domain() ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'orderby' ); ?>" id="<?php echo $this->get_field_id( 'orderby' ); ?>">

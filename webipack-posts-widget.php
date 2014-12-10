@@ -99,7 +99,7 @@ class WIP_Posts_Widget extends WP_Widget {
     protected $tax_names      = '';
     protected $thumbsizes     = '';
     protected $orderbys       = '';
-    protected $columns        = '';
+    // protected $columns        = '';
     protected $orders         = '';
     // protected $list_cols   = '';
     protected $display_promos = '';
@@ -328,7 +328,6 @@ class WIP_Posts_Widget extends WP_Widget {
         $instance['number']        = (int) $new_instance['number'];
         $instance['offset']        = (int) $new_instance['offset'];
         $instance['orderby']       = ( array_key_exists( $new_instance['orderby'], $this->orderbys ) ? $new_instance['orderby'] : 'date' );
-        $instance['columns']       = (int) $new_instance['columns'];
         $instance['order']         = ( array_key_exists( $new_instance['order'], $this->orders ) ? $new_instance['order'] : 'DESC' );
         $instance['sticky']        = ( isset(  $new_instance['sticky'] ) ? (int) $new_instance['sticky'] : '0' );
         $instance['thumbnail']     = ( isset(  $new_instance['thumbnail'] ) ? (int) $new_instance['thumbnail'] : '0' );
@@ -360,7 +359,6 @@ class WIP_Posts_Widget extends WP_Widget {
             'number'       => '3',
             'offset'       => '0',
             'orderby'      => 'date',
-            'columns'      => '4',
             'order'        => 'DESC',
             'sticky'       => '0',
             'thumbnail'    => '0',
@@ -547,14 +545,6 @@ class WIP_Posts_Widget extends WP_Widget {
 			'rand'			=> __( 'Random', $this->get_widget_text_domain() ),
 			'post__in'		=> __( 'Post ID Order', $this->get_widget_text_domain() ),
 		);
-
-        // Set the options for grid columns
-        $this->columns = array(
-            '1'   => 1,
-            '2'  =>  2,
-            '3'  =>  3,
-            '4'  =>  4,
-        );
 
 		// Set the options for order
 		$this->orders = array(
