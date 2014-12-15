@@ -8,7 +8,7 @@ if ( !defined( 'ABSPATH' ) )
 	die( '-1' );
 
 ?>
-<div class="dpe-fp-widget">
+<div class="wip-fp-widget">
 
 	<div class="section title">
         <p>
@@ -38,7 +38,7 @@ if ( !defined( 'ABSPATH' ) )
 				<div id="<?php echo $this->get_field_id( 'getemby-tt' ); ?>" class="tabs-panel tt" style="display:none;">
 					<p>
 						<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Select a taxonomy:', $this->get_widget_text_domain() ); ?></label>
-						<select class="widefat dpe-fp-taxonomy" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
+						<select class="widefat wip-fp-taxonomy" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
 							<option value="none" <?php echo 'none' == $taxonomy ? ' selected="selected"' : ''; ?>><?php _e( 'Ignore Taxonomy &amp; Term', $this->get_widget_text_domain() ); ?></option>
 							<?php
 							foreach ($this->taxonomies as $option) {
@@ -89,17 +89,27 @@ if ( !defined( 'ABSPATH' ) )
 	</div>
 
 	<div class="section display">
-		<h4><?php _e( 'Display options', $this->get_widget_text_domain() ); ?></h4>
-        <?php if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
-            <p class="cf">
-              <input class="dpe-fp-promotions" id="<?php echo $this->get_field_id( 'display_promos' ); ?>" name="<?php echo $this->get_field_id( 'display_promos' ); ?>" type="checkbox" value="1" <?php checked( '1', $display_promos ); ?>/>
-              <label for="<?php echo $this->get_field_id( 'display_promos' ); ?>"><?php _e( 'Show only promotion products?', $this->get_widget_text_domain() ); ?></label>
-            </p>
-        <?php } ?>
+
+        <h4><?php _e( 'Display options', $this->get_widget_text_domain() ); ?></h4>
+
+
         <p class="check cf">
-          <input class="dpe-fp-sticky" id="<?php echo $this->get_field_id( 'sticky' ); ?>" name="<?php echo $this->get_field_name( 'sticky' ); ?>" type="checkbox" value="1" <?php checked( '1', $sticky ); ?>/>
+          <input class="wip-fp-sticky" id="<?php echo $this->get_field_id( 'sticky' ); ?>" name="<?php echo $this->get_field_name( 'sticky' ); ?>" type="checkbox" value="1" <?php checked( '1', $sticky ); ?>/>
           <label for="<?php echo $this->get_field_id( 'sticky' ); ?>"><?php _e( 'Ignore sticky posts?', $this->get_widget_text_domain() ); ?></label>
         </p>
+
+        <?php if ( in_array( 'product',  $posttype ) ) { ?>
+            <p class="check cf">
+              <input class="wip-fp-promotions" id="<?php echo $this->get_field_id( 'promotions' ); ?>" name="<?php echo $this->get_field_name( 'promotions' ); ?>" type="checkbox" value="1" <?php checked( '1', $promotions ); ?>/>
+              <label for="<?php echo $this->get_field_id( 'promotions' ); ?>"><?php _e( 'Show only Products in promotions?', $this->get_widget_text_domain() ); ?></label>
+            </p>
+        <?php } ?>
+
+        <p class="check cf">
+          <input class="wip-fp-excerpt" id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?>/>
+          <label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php _e( 'Show Excerpt?', $this->get_widget_text_domain() ); ?></label>
+        </p>
+
         <p class="cf">
           <label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', $this->get_widget_text_domain() ); ?></label>
           <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" />
@@ -142,7 +152,7 @@ if ( !defined( 'ABSPATH' ) )
 
 	<div class="section thumbnails">
 		<p class="check">
-          <input class="dpe-fp-thumbnail" id="<?php echo $this->get_field_id( 'thumbnail' ); ?>" name="<?php echo $this->get_field_name( 'thumbnail' ); ?>" type="checkbox" value="1" <?php checked( '1', $thumbnail ); ?>/>
+          <input class="wip-fp-thumbnail" id="<?php echo $this->get_field_id( 'thumbnail' ); ?>" name="<?php echo $this->get_field_name( 'thumbnail' ); ?>" type="checkbox" value="1" <?php checked( '1', $thumbnail ); ?>/>
           <label style="font-weight:bold;" for="<?php echo $this->get_field_id( 'thumbnail' ); ?>"><?php _e( 'Display thumbnails?', $this->get_widget_text_domain() ); ?></label>
         </p>
 		<p <?php echo $thumbnail ? '' : 'style="display:none;"'?>  class="thumb-size">
@@ -172,4 +182,4 @@ if ( !defined( 'ABSPATH' ) )
 		</p>
 	</div>
 
-</div><!-- .dpe-fp-widget -->
+</div><!-- .wip-fp-widget -->

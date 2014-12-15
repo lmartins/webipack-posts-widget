@@ -6,14 +6,14 @@
  */
 
 
-.dpe-fp-widget {
-	
+.wip-fp-widget {
+
 	.cf {
 		*zoom:1;
 		&:after {clear:both;}
 		&:before, &:after {content:" "; display:table;}
 	}
-	
+
 	h4 {margin-bottom:0.5em;}
 	select {background-color:#fff;}
 
@@ -23,7 +23,7 @@
 	}
 
 	.warning {color:#d21703;}
-	
+
 	.section {
 		margin-bottom:1.33em; border-bottom:1px solid #dfdfdf;
 		.getemby {padding-bottom:1.333em;}
@@ -38,7 +38,7 @@
 			p	{margin:1em;}
 		}
 	}
-	
+
 	.display {
 		p {
 			margin-bottom:0.5em;
@@ -48,16 +48,16 @@
 		input {float:right; width:60px; text-align:right;}
 		select {float:right; width:120px;}
 	}
-		
+
 	.check {
 		input {float:none; width:auto;}
 		label {float:none; padding-top:0.2em;}
 	}
-	
+
 	.description {display:inline-block; padding-top:5px; font-size:80%;}
-	
+
 	.templates {
 		p {margin:1.33em 0;}
 	}
-	
+
 }

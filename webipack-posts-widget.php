@@ -62,7 +62,7 @@ class WIP_Posts_Widget extends WP_Widget {
      *
      * @var      string
      */
-    protected $plugin_version = '3.4';
+    protected $plugin_version = '3.4.1';
 
     /**
      * Unique identifier for your widget.
@@ -93,18 +93,18 @@ class WIP_Posts_Widget extends WP_Widget {
      *
      * @since    3.3.1
 	 */
-    protected $posttypes      = '';
-    protected $pt_names       = '';
-    protected $taxonomies     = '';
-    protected $tax_names      = '';
-    protected $thumbsizes     = '';
-    protected $orderbys       = '';
-    // protected $columns        = '';
-    protected $orders         = '';
-    // protected $list_cols   = '';
-    protected $display_promos = '';
-    protected $display_mode   = '';
-    protected $templates      = '';
+    protected $posttypes    = '';
+    protected $pt_names     = '';
+    protected $taxonomies   = '';
+    protected $tax_names    = '';
+    protected $thumbsizes   = '';
+    protected $orderbys     = '';
+    protected $orders       = '';
+    protected $templates    = '';
+
+    protected $display_mode = '';
+    protected $promotions   = '';
+    protected $excerpt      = '';
 
 
 	/*--------------------------------------------------*/
@@ -138,7 +138,7 @@ class WIP_Posts_Widget extends WP_Widget {
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
 		// Setup our get terms/AJAX callback
-		add_action( 'wp_ajax_dpe_fp_get_terms', array( &$this, 'terms_checklist' ) );
+		add_action( 'wp_ajax_wip_fp_get_terms', array( &$this, 'terms_checklist' ) );
 
 	}
 
@@ -227,16 +227,8 @@ class WIP_Posts_Widget extends WP_Widget {
 
 		}
 
-		// Finish the query
-		$args['post_status']			= array( 'publish', 'inherit' );
-		$args['posts_per_page']			= $number;
-		$args['offset']					= $offset;
-		$args['orderby']				= $orderby;
-		$args['order']					= $order;
-        $args['ignore_sticky_posts']    = $sticky;
-
         // If the user selects to show only promotion products
-        if ( $display_promo ) {
+        if ( in_array('product', $instance['posttype'] ) AND $promotions > 0 ) {
             $args['meta_query'] = array(
                                     'relation' => 'OR',
                                     array( // Simple products type
@@ -253,6 +245,14 @@ class WIP_Posts_Widget extends WP_Widget {
                                     )
                                 );
         }
+
+		// Finish the query
+		$args['post_status']			= array( 'publish', 'inherit' );
+		$args['posts_per_page']			= $number;
+		$args['offset']					= $offset;
+		$args['orderby']				= $orderby;
+		$args['order']					= $order;
+        $args['ignore_sticky_posts']    = $sticky;
 
 
 		// Allow filtering of the query arguments
@@ -335,7 +335,9 @@ class WIP_Posts_Widget extends WP_Widget {
         $instance['template']      = ( array_key_exists( $new_instance['template'], $this->templates ) ? $new_instance['template'] : 'default.php' );
         $instance['cur_tab']       = (int) $new_instance['cur_tab'];
         $instance['display_mode']  = ( array_key_exists( $new_instance['display_mode'], $this->display_mode ) ? $new_instance['display_mode'] : 'simple' );
-        $instance['display_promo'] = ( isset(  $new_instance['display_promo'] ) ? (int) $new_instance['display_promo'] : '0' );
+
+        $instance['excerpt']        = ( isset(  $new_instance['excerpt'] ) ? (int) $new_instance['excerpt'] : '0' );
+        $instance['promotions'] = ( isset(  $new_instance['promotions'] ) ? (int) $new_instance['promotions'] : '0' );
 
         return $instance;
 
@@ -361,6 +363,8 @@ class WIP_Posts_Widget extends WP_Widget {
             'orderby'      => 'date',
             'order'        => 'DESC',
             'sticky'       => '0',
+            'excerpt'      => '1',
+            'promotions'   => '0',
             'thumbnail'    => '0',
             'thumbsize'    => '',
             'template'     => 'default.php',
@@ -425,7 +429,7 @@ class WIP_Posts_Widget extends WP_Widget {
 
 		wp_enqueue_style(
 			$this->get_widget_slug() . '-admin',
-			plugins_url( 'css/admin.css', __FILE__ ),
+			plugins_url( 'build/css/admin.css', __FILE__ ),
 			array(),
 			$this->get_plugin_version()
 		);

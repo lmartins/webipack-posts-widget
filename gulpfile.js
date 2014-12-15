@@ -14,7 +14,7 @@ var gulp            = require('gulp'),
 var config = {
 
   JS: {
-    src: ["src/js/**/*.js"],
+    src: ["js/**/*.js"],
     build: "build/js/",
     buildFiles: "build/js/*.js"
   },
@@ -25,7 +25,7 @@ var config = {
   },
 
   SASS: {
-    src: "src/sass/**/*.scss",
+    src: "css/*.scss",
     build: "build/css/"
   }
 
@@ -85,95 +85,6 @@ gulp.task('sass-prefixer', function () {
 // });
 
 
-// WEBPACK --------------------------------------------------------------------
-gulp.task('webpack', function(callback) {
-  webpackCompiler.run(function(err, stats) {
-    if (err) {
-      throw new plugins.util.PluginError('webpack', err);
-    }
-    plugins.util.log('webpack', stats.toString({
-      colors: true,
-    }));
-    callback();
-  });
-});
-
-var webpackConfig = {
-  cache: true,
-  debug: true,
-  progress: true,
-  colors: true,
-  devtool: 'source-map',
-  entry: {
-    main: './src/js/app.js',
-    vendor: [
-      // 'underscore',
-      // 'owl',
-      // 'pikabu',
-      // 'intentionjs'
-    ]
-  },
-  output: {
-    path: config.JS.build ,
-    filename: '[name].bundle.js',
-    chunkFilename: '[id].chunk.js',
-    publicPath: '/app/js/',
-  },
-  module:{
-    loaders: [
-      { test: /\.html$/, loader: "html" },
-      { test: /\.css$/, loader: "css" }
-    ]
-  },
-  resolve: {
-    modulesDirectories: ['node_modules', 'bower_components'],
-    alias: {
-      // 'underscore'  : 'lodash',
-      // 'owl'         : 'owl-carousel2/dist/owl.carousel.js',
-      // 'pikabu'      : 'pikabu/build/pikabu.min.js',
-      // 'intentionjs' : 'intentionjs/code/intention.min.js'
-      // 'firebase'     : 'firebase/firebase.js'
-    }
-  },
-  externals: {
-    // require("jquery") is external and available
-    //  on the global var jQuery
-    // "angular": "angular",
-    // "jquery": "jQuery"
-  }
-
-};
-
-gulp.task('set-env-dev', function() {
-  webpackConfig.plugins = [
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new webpack.BannerPlugin(info.name + '\n' + info.version + ':' + Date.now() + ' [development build]'),
-    new ComponentPlugin(),
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
-  ];
-  webpackCompiler = webpack( webpackConfig );
-});
-
-gulp.task('set-env-prod', function() {
-  webpackConfig.debug = false;
-  webpackConfig.devtool = "";
-  webpackConfig.plugins = [
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    // new ngminPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: false
-    }),
-    new ComponentPlugin(),
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
-  ];
-  webpackCompiler = webpack( webpackConfig );
-});
-
-
 // JAVASCRIPT RELOADING -------------------------------------------------------
 gulp.task('js', function () {
   return gulp.src( config.JS.buildFiles )
@@ -222,7 +133,5 @@ gulp.task('watch', function () {
   gulp.watch( config.SASS.src , ['sass']  );
 });
 
-gulp.task('default', ['set-env-prod', 'browser-sync', 'watch']);
-gulp.task('dev', ['set-env-dev', 'browser-sync', 'watch']);
-gulp.task('build', ['set-env-prod', 'webpack'] );
+gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('server', ['browser-sync'] );
