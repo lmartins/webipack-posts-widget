@@ -110,6 +110,11 @@ if ( !defined( 'ABSPATH' ) )
           <label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php _e( 'Show Excerpt?', $this->get_widget_text_domain() ); ?></label>
         </p>
 
+        <p class="check cf">
+          <input class="wip-fp-display-meta" id="<?php echo $this->get_field_id( 'display_meta' ); ?>" name="<?php echo $this->get_field_name( 'display_meta' ); ?>" type="checkbox" value="1" <?php checked( '1', $display_meta ); ?>/>
+          <label for="<?php echo $this->get_field_id( 'display_meta' ); ?>"><?php _e( 'Show Meta Info (Date/Category)?', $this->get_widget_text_domain() ); ?></label>
+        </p>
+
         <p class="cf">
           <label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', $this->get_widget_text_domain() ); ?></label>
           <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" />

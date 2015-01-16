@@ -103,6 +103,7 @@ class WIP_Posts_Widget extends WP_Widget {
     protected $templates    = '';
 
     protected $display_mode = '';
+    protected $display_meta = '';
     protected $promotions   = '';
     protected $excerpt      = '';
 
@@ -336,6 +337,7 @@ class WIP_Posts_Widget extends WP_Widget {
         $instance['cur_tab']       = (int) $new_instance['cur_tab'];
         $instance['display_mode']  = ( array_key_exists( $new_instance['display_mode'], $this->display_mode ) ? $new_instance['display_mode'] : 'simple' );
 
+        $instance['display_meta']  = ( isset(  $new_instance['display_meta'] ) ? (int) $new_instance['display_meta'] : '0' );
         $instance['excerpt']        = ( isset(  $new_instance['excerpt'] ) ? (int) $new_instance['excerpt'] : '0' );
         $instance['promotions'] = ( isset(  $new_instance['promotions'] ) ? (int) $new_instance['promotions'] : '0' );
 
@@ -369,6 +371,7 @@ class WIP_Posts_Widget extends WP_Widget {
             'thumbsize'    => '',
             'template'     => 'default.php',
             'cur_tab'      => '0',
+            'display_meta' => '0',
             'display_mode' => 'simple',
 		) );
 
