@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Posts Widget (Webipack)\n"
+"POT-Creation-Date: 2015-01-19 11:09-0000\n"
+"PO-Revision-Date: 2015-01-19 11:17-0000\n"
+"Last-Translator: Luis Martins <luis.martins@multiweb.pt>\n"
+"Language-Team: Luis Martins <luis.martins@multiweb.pt>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: views/admin.php:15
+msgid "Widget title:"
+msgstr "﻿Título Widget"
+
+#: views/admin.php:21
+msgid "Get posts by"
+msgstr "Obter posts por"
+
+#: views/admin.php:29
+msgid "Post Type"
+msgstr "Tipo de Post"
+
+#: views/admin.php:30
+msgid "Taxonomy &amp; Term"
+msgstr "Taxonomia &amp; Termos"
+
+#: views/admin.php:31 webipack-posts-widget.php:548
+msgid "Post ID"
+msgstr "ID do Post"
+
+#: views/admin.php:31
+msgid "ID"
+msgstr "ID"
+
+#: views/admin.php:40
+msgid "Select a taxonomy:"
+msgstr "Seleccione taxonomia:"
+
+#: views/admin.php:42
+msgid "Ignore Taxonomy &amp; Term"
+msgstr "Ignorar Taxonomia &amp; Termos"
+
+#: views/admin.php:50 webipack-posts-widget.php:463
+msgid "Select terms:"
+msgstr "Seleccionar Termos:"
+
+#: views/admin.php:68 webipack-posts-widget.php:464
+#: webipack-posts-widget.php:492
+msgid "No terms found."
+msgstr "Não foram encontrados termos."
+
+#: views/admin.php:79
+msgid "Comma-separated list of post IDs:"
+msgstr "Lista de IDs de Posts, separados por vírgula"
+
+#: views/admin.php:81
+msgid "Will override settings on the Post Type and Taxonomy &amp; Term tabs."
+msgstr ""
+"Irá substituir as definições nos tabuladores de Tipo de Post, Taxonomia e "
+"Termos."
+
+#: views/admin.php:81
+msgid "See documentation."
+msgstr "Ver documentação."
+
+#: views/admin.php:93
+msgid "Display options"
+msgstr "Opções de Visualização"
+
+#: views/admin.php:98
+msgid "Ignore sticky posts?"
+msgstr "Ignorar posts fixos?"
+
+#: views/admin.php:104
+msgid "Show only Products in promotions?"
+msgstr "Mostrar apenas Produtos em promoção?"
+
+#: views/admin.php:110
+msgid "Show Excerpt?"
+msgstr "Mostrar Resumo?"
+
+#: views/admin.php:115
+msgid "Show Meta Info (Date/Category)?"
+msgstr "Mostrar informação meta (Data/Categoria)?"
+
+#: views/admin.php:119
+msgid "Number of posts to show:"
+msgstr "Número de posts a mostrar:"
+
+#: views/admin.php:123
+msgid "Number of posts to skip:"
+msgstr "Número de posts a ignorar:"
+
+#: views/admin.php:127
+msgid "Order posts by:"
+msgstr "Ordenar posts por:"
+
+#: views/admin.php:137
+msgid "Order:"
+msgstr "Ordem:"
+
+#: views/admin.php:147
+msgid "Display Mode:"
+msgstr "Modo de Apresentação:"
+
+#: views/admin.php:161
+msgid "Display thumbnails?"
+msgstr "Mostrar imagens?"
+
+#: views/admin.php:164
+msgid "Select a thumbnail size to show:"
+msgstr "Seleccione tamanho da imagem a mostrar:"
+
+#: views/admin.php:177
+msgid "Template filename:"
+msgstr "Nome do modelo:"
+
+#: views/default.php:49
+msgid "No post found"
+msgstr "Não foram encontrados posts"
+
+#: webipack-posts-widget.php:127
+msgid "Posts Widget (Webipack)"
+msgstr "Widget de Posts (Webipack)"
+
+#: webipack-posts-widget.php:130
+msgid "Display posts as widget items."
+msgstr "Mostrar posts como items widget."
+
+#: webipack-posts-widget.php:462
+msgid "Getting terms..."
+msgstr "A obter termos..."
+
+#: webipack-posts-widget.php:544
+msgid "Publish Date"
+msgstr "Data de Publicação"
+
+#: webipack-posts-widget.php:545
+msgid "Modified Date"
+msgstr "Data de Modificação"
+
+#: webipack-posts-widget.php:546
+msgid "Title"
+msgstr "Título"
+
+#: webipack-posts-widget.php:547
+msgid "Menu Order"
+msgstr "Ordem de Menu"
+
+#: webipack-posts-widget.php:549
+msgid "Author"
+msgstr "Autor"
+
+#: webipack-posts-widget.php:550
+msgid "Post Slug"
+msgstr "﻿Slug do Post"
+
+#: webipack-posts-widget.php:551
+msgid "Comment Count"
+msgstr "Contagem de Comentários"
+
+#: webipack-posts-widget.php:552
+msgid "Random"
+msgstr "Aleatório"
+
+#: webipack-posts-widget.php:553
+msgid "Post ID Order"
+msgstr "Ordem de ID"
+
+#: webipack-posts-widget.php:558
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: webipack-posts-widget.php:559
+msgid "Descending"
+msgstr "Descendente"
+
+#: webipack-posts-widget.php:572
+msgid "Simple"
+msgstr "Simples"
+
+#: webipack-posts-widget.php:573
+msgid "Slider"
+msgstr "Slider"
