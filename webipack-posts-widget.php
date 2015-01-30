@@ -421,7 +421,7 @@ class WIP_Posts_Widget extends WP_Widget {
 	 */
 	public function widget_textdomain() {
 
-		load_plugin_textdomain( $this->get_widget_text_domain(), false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( $this->get_widget_text_domain(), false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	} // end widget_textdomain
 
