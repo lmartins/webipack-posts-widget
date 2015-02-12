@@ -16,7 +16,7 @@ if( $flexible_posts->have_posts() ):
 ?>
     <div
         class="loop loop--list"
-        data-eq-pts="small: 0, medium: 470, large: 900"
+        data-eq-pts="xsmall: 0, small: 320, medium: 470, large: 900"
         <?php if ( $display_mode == 'slider') echo "data-slider" ; ?>
         >
     <?php while( $flexible_posts->have_posts() ) : $flexible_posts->the_post(); global $post; ?>
