@@ -14,7 +14,11 @@ if ( !empty($title) )
 
 if( $flexible_posts->have_posts() ):
 ?>
-    <div class="loop loop--list" <?php if ( $display_mode == 'slider') echo "data-slider" ; ?> >
+    <div
+        class="loop loop--list"
+        data-eq-pts="small: 0, medium: 470, large: 900"
+        <?php if ( $display_mode == 'slider') echo "data-slider" ; ?>
+        >
     <?php while( $flexible_posts->have_posts() ) : $flexible_posts->the_post(); global $post; ?>
         <div class="item">
             <div id="post-<?php the_ID(); ?>" <?php post_class( 'Media' ); ?> >
