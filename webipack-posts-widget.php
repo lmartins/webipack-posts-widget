@@ -45,7 +45,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'FPW_Plugin' ) ) {
+if ( ! class_exists( 'WIP_Posts_Widget' ) ) {
 
 	/**
 	 * Flexible Posts Widgets Plugin Class
