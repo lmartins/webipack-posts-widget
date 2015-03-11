@@ -185,7 +185,7 @@ class Webipack_Posts_Widget extends WP_Widget {
 		}
         // If the user selects to show only promotion products
         if ( in_array('product', $instance['posttype'] ) AND $promotions > 0 ) {
-            $args['meta_query'] = array(
+            $query_args['meta_query'] = array(
                                     'relation' => 'OR',
                                     array( // Simple products type
                                         'key'           => '_sale_price',
