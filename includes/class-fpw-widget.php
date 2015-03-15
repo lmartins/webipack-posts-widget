@@ -506,10 +506,11 @@ class Webipack_Posts_Widget extends WP_Widget {
 
 
         // Set display options
-        $this->display_mode = array (
-            'simple' => __( 'Simple', $this->widget_text_domain ),
+		$display_mode_options = array(
+			'simple' => __( 'Simple', $this->widget_text_domain ),
             'slider' => __( 'Slider', $this->widget_text_domain )
-        );
+		);
+        $this->display_mode = apply_filters( 'dpe_fpw_displaymodes', $display_mode_options );
 
 
 	}
