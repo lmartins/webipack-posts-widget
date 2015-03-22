@@ -1,6 +1,6 @@
 <?php
 /**
- * Flexible Posts Widget
+ * Webipack Posts Widget
  *
  * A collection of widgets to display posts based on different criteria
  *
